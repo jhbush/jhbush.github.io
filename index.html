@@ -1,112 +1,65 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jason Bush</title>
-  <meta name="description" content="Jason Bush: Mac / Apple Engineer focused on Jamf, macOS automation and security.">
-  <link rel="icon" href="https://avatars.githubusercontent.com/u/963070?v=4&s=64">
-  <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #1f2328;
-      --muted: #59636e;
-      --border: #d1d9e0;
-      --card: #f6f8fa;
-      --accent: #0969da;
-      --pill: #ddf4ff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0d1117;
-        --fg: #f0f6fc;
-        --muted: #9198a1;
-        --border: #3d444d;
-        --card: #151b23;
-        --accent: #4493f8;
-        --pill: #121d2f;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px 16px;
-      background: var(--bg);
-      color: var(--fg);
-      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-    }
-    main { width: 100%; max-width: 560px; text-align: center; }
-    .avatar {
-      width: 128px; height: 128px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-    }
-    h1 { font-size: 32px; font-weight: 600; margin: 20px 0 4px; }
-    .role { color: var(--muted); margin: 0; }
-    .status {
-      display: inline-block;
-      margin: 24px 0;
-      padding: 4px 12px;
-      font-size: 14px;
-      color: var(--accent);
-      background: var(--pill);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-    }
-    .card {
-      text-align: left;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 16px 20px;
-    }
-    .card p { margin: 0; }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 24px;
-    }
-    nav a {
-      padding: 6px 14px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--fg);
-      text-decoration: none;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-    }
-    nav a:hover { border-color: var(--accent); color: var(--accent); }
-    footer { margin-top: 40px; font-size: 12px; color: var(--muted); }
-  </style>
-</head>
-<body>
-  <main>
-    <img class="avatar" src="https://avatars.githubusercontent.com/u/963070?v=4" alt="Jason Bush">
-    <h1>Jason Bush</h1>
-    <p class="role">Mac / Apple Engineer · Jamf · macOS automation &amp; security</p>
-    <p class="role">San Francisco Bay Area</p>
+---
+layout: default
+---
+<section class="hero wrap">
+  <img class="hero-avatar" src="{{ site.author.avatar }}" alt="{{ site.author.name }}" width="112" height="112">
+  <div>
+    <p class="eyebrow">{{ site.author.role }} · {{ site.author.location }}</p>
+    <h1>Hi, I'm Jason. I help Macs behave at scale.</h1>
+    <p class="lede">I've spent 20+ years managing and securing Apple fleets. This is where I write up the scripts, Jamf workflows and lessons learned along the way.</p>
+    <p class="hero-links">
+      <a class="button" href="{{ '/blog/' | relative_url }}">Read the writing</a>
+      <a class="button button-ghost" href="https://github.com/{{ site.social.github }}">GitHub</a>
+    </p>
+  </div>
+</section>
 
-    <span class="status">🚧 New site coming soon</span>
+{% assign featured = site.posts | where: "featured", true %}
+{% if featured.size > 0 %}
+<section class="wrap section">
+  <h2 class="section-title">Featured</h2>
+  <div class="grid grid-featured">
+    {% for post in featured limit: 2 %}
+      {% include post-card.html post=post large=true %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
-    <div class="card">
-      <p>I'm a systems engineer with 20+ years on the Macintosh, focused on managing and securing Apple fleets with Jamf, AutoPkg and AWS EC2 Mac. While this site is under construction, you can find my scripts and tools on GitHub.</p>
+<section class="wrap section">
+  <div class="section-head">
+    <h2 class="section-title">Latest writing</h2>
+    <a href="{{ '/blog/' | relative_url }}">All posts →</a>
+  </div>
+  <div class="grid">
+    {% for post in site.posts limit: 6 %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <h2 class="section-title">What I write about</h2>
+  <div class="topics">
+    <div class="topic">
+      <span class="topic-icon">🍏</span>
+      <h3>Jamf Pro</h3>
+      <p>Extension attributes, smart groups, policies and the API.</p>
     </div>
-
-    <nav>
-      <a href="https://github.com/jhbush">GitHub</a>
-      <a href="https://www.linkedin.com/in/bushjason">LinkedIn</a>
-      <a href="https://www.macadmins.org">MacAdmins Slack · @jhbush</a>
-      <a href="https://gist.github.com/jhbush">Gists</a>
-    </nav>
-
-    <footer>© Jason Bush</footer>
-  </main>
-</body>
-</html>
+    <div class="topic">
+      <span class="topic-icon">🛡️</span>
+      <h3>macOS security</h3>
+      <p>EDR, vulnerability scanning and ransomware protection on the Mac.</p>
+    </div>
+    <div class="topic">
+      <span class="topic-icon">📦</span>
+      <h3>Packaging</h3>
+      <p>AutoPkg recipes and keeping software patched without the busywork.</p>
+    </div>
+    <div class="topic">
+      <span class="topic-icon">☁️</span>
+      <h3>Macs in the cloud</h3>
+      <p>AWS EC2 Mac instances, Terraform and automated MDM enrollment.</p>
+    </div>
+  </div>
+</section>

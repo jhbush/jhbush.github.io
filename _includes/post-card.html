@@ -1,0 +1,22 @@
+{% assign p = include.post %}
+<article class="card{% if include.large %} card-large{% endif %}">
+  {% if p.image %}
+  <a class="card-image" href="{{ p.url | relative_url }}" tabindex="-1" aria-hidden="true">
+    <img src="{{ p.image | relative_url }}" alt="" loading="lazy">
+  </a>
+  {% endif %}
+  <div class="card-body">
+    <p class="meta">
+      <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time>
+      {% assign words = p.content | number_of_words %}
+      · {{ words | divided_by: 200 | plus: 1 }} min read
+    </p>
+    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    <p class="excerpt">{{ p.description | default: p.excerpt | strip_html | truncatewords: 32 }}</p>
+    {% if p.tags.size > 0 %}
+    <p class="tags">
+      {% for tag in p.tags %}<a class="tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+    </p>
+    {% endif %}
+  </div>
+</article>

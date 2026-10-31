@@ -1,0 +1,17 @@
+---
+layout: page
+title: Writing
+subtitle: Write-ups, how-tos and field notes on running Macs in the real world.
+---
+{% assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in years %}
+  <h2 class="archive-year">{{ year.name }}</h2>
+  <ul class="archive-list">
+    {% for post in year.items %}
+    <li>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

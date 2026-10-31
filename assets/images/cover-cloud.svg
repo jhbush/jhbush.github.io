@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c2541"/>
+      <stop offset="1" stop-color="#3a2a14"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Cloud -->
+  <path d="M520 420 C450 420 400 370 400 305 C400 240 455 190 520 195 C545 120 615 75 695 75 C790 75 865 140 880 225 C950 225 1010 280 1010 345 C1010 390 980 420 940 420 Z"
+        transform="translate(95 40) scale(1.1)" fill="#e6edf3" opacity="0.95"/>
+  <!-- Connection lines -->
+  <g stroke="#ff9900" stroke-width="5" stroke-dasharray="14 12" fill="none">
+    <path d="M800 520 V600"/>
+    <path d="M800 600 H470 V640"/>
+    <path d="M800 600 H1130 V640"/>
+    <path d="M800 600 V640"/>
+  </g>
+  <!-- Mac minis -->
+  <g fill="#c9d1d9" stroke="#8b949e" stroke-width="3">
+    <rect x="370" y="640" width="200" height="70" rx="16"/>
+    <rect x="700" y="640" width="200" height="70" rx="16"/>
+    <rect x="1030" y="640" width="200" height="70" rx="16"/>
+  </g>
+  <g fill="#3fb950">
+    <circle cx="545" cy="675" r="6"/>
+    <circle cx="875" cy="675" r="6"/>
+    <circle cx="1205" cy="675" r="6"/>
+  </g>
+  <text x="800" y="330" font-family="Menlo, monospace" font-size="56" font-weight="700" fill="#1c2541" text-anchor="middle">mac2.metal</text>
+</svg>

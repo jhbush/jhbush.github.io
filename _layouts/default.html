@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+{% include head.html %}
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  {% include header.html %}
+  <main id="content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <button class="to-top" type="button" aria-label="Back to top">↑</button>
+</body>
+</html>

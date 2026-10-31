@@ -1,0 +1,22 @@
+---
+layout: page
+title: Tags
+subtitle: Browse posts by topic.
+permalink: /tags/
+---
+{% assign tags = site.tags | sort %}
+<p class="tag-cloud">
+  {% for tag in tags %}<a class="tag" href="#{{ tag[0] | slugify }}">{{ tag[0] }} · {{ tag[1].size }}</a>{% endfor %}
+</p>
+
+{% for tag in tags %}
+  <h2 class="archive-year" id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+  <ul class="archive-list">
+    {% for post in tag[1] %}
+    <li>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1a3e"/>
+      <stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <!-- Pipeline: download → package → deploy -->
+  <g font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="34" fill="#e6edf3" text-anchor="middle">
+    <g transform="translate(240 300)">
+      <rect width="300" height="300" rx="32" fill="#161b22" stroke="#8957e5" stroke-width="4"/>
+      <path d="M150 70 V190 M95 140 L150 195 L205 140" fill="none" stroke="#d2a8ff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="150" y="260">Download</text>
+    </g>
+    <g transform="translate(650 300)">
+      <rect width="300" height="300" rx="32" fill="#161b22" stroke="#8957e5" stroke-width="4"/>
+      <path d="M150 60 L235 105 V195 L150 240 L65 195 V105 Z M65 105 L150 150 L235 105 M150 150 V240" fill="none" stroke="#d2a8ff" stroke-width="12" stroke-linejoin="round"/>
+      <text x="150" y="285" font-size="30">Package</text>
+    </g>
+    <g transform="translate(1060 300)">
+      <rect width="300" height="300" rx="32" fill="#161b22" stroke="#8957e5" stroke-width="4"/>
+      <path d="M85 150 L130 195 L215 105" fill="none" stroke="#3fb950" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="150" y="260">Deploy</text>
+    </g>
+  </g>
+  <g stroke="#8957e5" stroke-width="6" fill="#8957e5">
+    <path d="M555 450 H630"/>
+    <path d="M630 438 L648 450 L630 462 Z"/>
+    <path d="M965 450 H1040"/>
+    <path d="M1040 438 L1058 450 L1040 462 Z"/>
+  </g>
+  <text x="800" y="200" font-family="Menlo, monospace" font-size="44" fill="#8b949e" text-anchor="middle">autopkg run -v Example.jamf.recipe</text>
+</svg>

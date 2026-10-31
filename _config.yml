@@ -1,0 +1,65 @@
+title: Jason Bush
+tagline: Notes on managing and securing Macs at scale
+description: >-
+  Write-ups, scripts and field notes from 20+ years of Mac administration:
+  Jamf Pro, AutoPkg, macOS security and AWS EC2 Mac.
+author:
+  name: Jason Bush
+  avatar: https://avatars.githubusercontent.com/u/963070?v=4
+  location: San Francisco Bay Area
+  role: Mac / Apple Engineer
+url: https://jhbush.github.io
+baseurl: ""
+lang: en
+
+social:
+  github: jhbush
+  linkedin: bushjason
+  slack: jhbush
+
+nav:
+  - title: Writing
+    url: /blog/
+  - title: Projects
+    url: /projects/
+  - title: Tags
+    url: /tags/
+  - title: About
+    url: /about/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+highlighter: rouge
+
+permalink: /:year/:title/
+excerpt_separator: <!--more-->
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      toc: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - vendor
